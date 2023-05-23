@@ -1,0 +1,36 @@
+{% extends 'contas/base.html' %}
+
+{% block title %} Form {% endblock %}
+
+{% block content %}
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        <div class="mb-3">              
+                <!--{{ form.as_p }}-->   
+            <label for="id_description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="id_description" name="description">
+        </div>
+              
+        <div class="mb-3">
+            <label for="id_value" class="form-label">Value</label>
+            <input type="value" class="form-control" id="id_value" name="value" >
+        </div>
+
+        <div class="mb-3">
+            <label for="id_category" class="form-label">Category</label>
+            <select class="form-control" id="id_category" name="category">
+                {% for item in cat %}
+                    <option value="{{item.id}}">{{item.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="id_observation" class="form-label">Observation</label>
+            <textarea class="form-control" id="id_observation" name="observation"></textarea>
+
+
+        </div>
+        <button type="submit" class="btn btn-primary">{{ action }}</button>
+    </form>
+{% endblock %}

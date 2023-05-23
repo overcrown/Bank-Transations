@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>WELCOME</h1>
+
+    <h1>Today is {{date}}</h1>
+
+    <ul>
+        {% for item in list %}
+            {% if item == "t3" %}
+                <li> <h1>Last item</h1> </li>
+            {% else %}
+                <li> {{ item }} </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+</html>

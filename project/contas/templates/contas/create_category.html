@@ -1,0 +1,11 @@
+{% extends 'contas/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <form method="POST" class="form-control">
+        {% csrf_token %}
+        {{ form|crispy }}
+    </form>
+
+{% endblock %}

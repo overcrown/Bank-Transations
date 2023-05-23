@@ -1,0 +1,49 @@
+{% extends 'contas/base.html' %}
+
+{% block title %} List of Items {% endblock %}
+
+
+{% block search %}
+
+    <div class="search" id="idsearch">
+        <form method="GET" class="d-flex">
+            <input class="form-control me-2"  id="id-search" name="search" type="search" placeholder="Search" value="{{ request.GET.search }}" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for item in transation %}
+            <li> <a href="{% url 'url_update' item.id %}"> {{ item.description }} - {{ item.value }} - {{ item.date }} </a>>  <a href="{% url 'url_delete' item.id %}"> Delete </a> </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'url_insert' %}">New</a>
+
+
+    <div class="pagination">
+
+        <span class="previous-page">
+            {% if transation.has_previous %}
+                <a  href="?page={{ transation.previous_page_number }}"> Previous </a>
+            {% endif %}
+        </span>
+
+        {% if transation.paginator.num_page == 0 %}
+            <span class="current-page">
+                <p> Page {{ transation.number }} of {{ transation.paginator.num_pages }}</p>
+            </span>
+        {% endif %}
+
+        <span class="next-page">
+            {% if transation.has_next %}
+                <a href="?page={{ transation.next_page_number }}">Next</a>
+                <a href="?page={{ transation.paginator.num_pages }}" >Last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+{% endblock %}

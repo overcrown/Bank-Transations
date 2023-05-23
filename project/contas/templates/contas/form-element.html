@@ -1,0 +1,22 @@
+{% extends 'contas/base.html' %}
+
+{% block title %} Element Form {% endblock %}
+
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {% for item in elements %}
+            <li><input type="checkbox" value="clicked"  name="c{{item.id}}"/>{{ item.name }}</li>
+
+        {% endfor %}    
+
+        
+        <button type="submit" name="save" value="save" >Save</button>
+    </form>
+{% endblock %}
+
+
+{% block form %}
+
+{% endblock %}

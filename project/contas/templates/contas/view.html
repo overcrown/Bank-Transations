@@ -1,0 +1,16 @@
+{% extends 'contas/base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+    {% for td in user.category.all %}
+        <p><a href="/{{td.id}}" >{{td.name}}</a></p>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    {% for item in data %}
+        <p><a href="/{{td.id}}" >{{td.name}}</a></p>
+    {% endfor %}
+{% endblock %}
