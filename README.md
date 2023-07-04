@@ -1,5 +1,5 @@
-# django-training
-Django project used to training my django skills
+# Bank Transations
+Django project used to training my django skills and prepare myself to the Job Market
 
 
 ## Description
